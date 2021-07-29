@@ -1,0 +1,76 @@
+﻿@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .fit-picture {
+        width: 283px;
+        height: 400px;
+    }
+</style>
+
+
+
+<h1>Details</h1>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-10">
+            <img class="fit-picture"
+                 src="@Html.DisplayFor(model => model.Image)"
+                 alt="image movie">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.categories)
+        </dt>
+        <dd class="col-sm-10">
+
+
+
+            @foreach (Category x in ViewBag.categories)
+            {
+                @Html.DisplayFor(model => x.Name)
+                @Html.Raw("  ")
+            }
+
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)$
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.actor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.actor.FirstName)
+            @Html.Raw("  ")
+            @Html.DisplayFor(model => model.actor.LastName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
