@@ -22,7 +22,6 @@
 - RAZOR
 - Entity framework
 - SQLServer
-- Bootstrap4 / jQuery
 
 ---
 
